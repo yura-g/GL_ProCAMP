@@ -39,11 +39,11 @@ swap free 4271628288
 
 -------------------------------------------------------------------------------------------
 
-docker build -t yuriig/psutil:latest .
+# docker build -t yuriig/psutil:latest .
 
-docker push yuriig/psutil:latest
+# docker push yuriig/psutil:latest
 
-docker run --name psutil --pid host -d -ti --userns host -v /home/yg/projects/my/GL_Procamp:/tmp -v /etc/passwd:/etc/passwd:ro yuriig/psutil:latest
+# docker run --name psutil --pid host -d -ti --userns host -v /home/yg/projects/my/GL_Procamp:/tmp -v /etc/passwd:/etc/passwd:ro yuriig/psutil:latest
 
 -------------------------------------------------------------------------------------------
 
@@ -182,4 +182,4 @@ MiB Swap:   4095.5 total,   4073.7 free,     21.8 used.   3605.8 avail Mem
      12 root      rt   0       0      0      0 S   0.0   0.0   0:00.51 migration/0                                                                     
      13 root     -51   0       0      0      0 S   0.0   0.0   0:00.00 idle_inject/0 
      
-     -------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
