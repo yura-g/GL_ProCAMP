@@ -8,6 +8,7 @@ For display cpu and mem metrics we can run script metrics.py
 -------------------------------------------------------------------------------------------
 
 python3 metrics.py cpu
+
 system.cpu.idle 498288.53 
 system.cpu.user 31070.55 
 system.cpu.guest 0.0 
@@ -23,6 +24,7 @@ system.cpu.system 12015.86
 -------------------------------------------------------------------------------------------
 
 python3 metrics.py mem
+
 virtual total 16175804416 
 virtual used 10338594816 
 virtual free 848625664 
@@ -38,12 +40,15 @@ swap free 4271628288
 -------------------------------------------------------------------------------------------
 
 docker build -t yuriig/psutil:latest .
+
 docker push yuriig/psutil:latest
+
 docker run --name psutil --pid host -d -ti --userns host -v /home/yg/projects/my/GL_Procamp:/tmp -v /etc/passwd:/etc/passwd:ro yuriig/psutil:latest
 
 -------------------------------------------------------------------------------------------
 
 docker exec -ti psutil python3 /tmp/metrics.py cpu
+
 system.cpu.idle 504920.7 
 system.cpu.user 31863.54 
 system.cpu.guest 0.0 
@@ -52,6 +57,7 @@ system.cpu.stolen 0.0
 system.cpu.system 12327.92
 
 docker exec -ti psutil python3 /tmp/metrics.py mem
+
 virtual total 16175804416 
 virtual used 10718982144 
 virtual free 485036032 
@@ -67,7 +73,9 @@ swap free 4271628288
 
 -------------------------------------------------------------------------------------------
 
-top - 17:10:54 up 1 day, 17:51,  1 user,  load average: 1.96, 1.73, 1.66
+top
+
+17:10:54 up 1 day, 17:51,  1 user,  load average: 1.96, 1.73, 1.66
 Tasks: 395 total,   1 running, 394 sleeping,   0 stopped,   0 zombie
 %Cpu(s):  9.8 us,  4.4 sy,  0.0 ni, 85.4 id,  0.0 wa,  0.0 hi,  0.4 si,  0.0 st
 MiB Mem :  15426.4 total,    484.2 free,  10189.7 used,   4752.5 buff/cache
@@ -123,6 +131,7 @@ MiB Swap:   4095.5 total,   4073.7 free,     21.8 used.   3595.1 avail Mem
 -------------------------------------------------------------------------------------------
 
 docker exec -ti psutil sh
+
 top
 
 top - 15:13:13 up 1 day, 17:53,  0 users,  load average: 1.30, 1.52, 1.59
