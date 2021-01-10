@@ -130,9 +130,12 @@ MiB Swap:   4095.5 total,   4073.7 free,     21.8 used.   3595.1 avail Mem
 -------------------------------------------------------------------------------------------
 
 # Display pids and usernames from host in container 
-
+# How to display information about processes running on the host machine from within the container environment (think about pid namespaces).
+# How to display usernames for processes running on the host machine from within the container environment (think how linux resolves uid to username and docker volumes).
 -------------------------------------------------------------------------------------------
 ```
+docker run --name psutil --pid host -d -ti --userns host -v /home/yg/projects/my/GL_Procamp:/tmp -v /etc/passwd:/etc/passwd:ro yuriig/psutil:latest
+
 docker exec -ti psutil sh
 
 top
