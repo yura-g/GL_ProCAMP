@@ -23,7 +23,7 @@ system.cpu.system 12015.86
 
 -------------------------------------------------------------------------------------------
 
-# python3 metrics.py mem
+python3 metrics.py mem
 
 virtual total 16175804416 
 virtual used 10338594816 
@@ -39,15 +39,15 @@ swap free 4271628288
 
 -------------------------------------------------------------------------------------------
 
-# docker build -t yuriig/psutil:latest .
+docker build -t yuriig/psutil:latest .
 
-# docker push yuriig/psutil:latest
+docker push yuriig/psutil:latest
 
-# docker run --name psutil --pid host -d -ti --userns host -v /home/yg/projects/my/GL_Procamp:/tmp -v /etc/passwd:/etc/passwd:ro yuriig/psutil:latest
+docker run --name psutil --pid host -d -ti --userns host -v /home/yg/projects/my/GL_Procamp:/tmp -v /etc/passwd:/etc/passwd:ro yuriig/psutil:latest
 
 -------------------------------------------------------------------------------------------
 
-# docker exec -ti psutil python3 /tmp/metrics.py cpu
+docker exec -ti psutil python3 /tmp/metrics.py cpu
 
 system.cpu.idle 504920.7 
 system.cpu.user 31863.54 
@@ -73,7 +73,7 @@ swap free 4271628288
 
 -------------------------------------------------------------------------------------------
 
-# top
+top
 
 17:10:54 up 1 day, 17:51,  1 user,  load average: 1.96, 1.73, 1.66
 Tasks: 395 total,   1 running, 394 sleeping,   0 stopped,   0 zombie
@@ -130,9 +130,9 @@ MiB Swap:   4095.5 total,   4073.7 free,     21.8 used.   3595.1 avail Mem
 
 -------------------------------------------------------------------------------------------
 
-# docker exec -ti psutil sh
+docker exec -ti psutil sh
 
-# top
+top
 
 top - 15:13:13 up 1 day, 17:53,  0 users,  load average: 1.30, 1.52, 1.59
 Tasks: 396 total,   1 running, 395 sleeping,   0 stopped,   0 zombie
