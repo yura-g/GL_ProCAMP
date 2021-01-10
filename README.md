@@ -6,47 +6,46 @@ For display cpu and mem metrics we can run script metrics.py
 # CPU
 
 -------------------------------------------------------------------------------------------
+```
+python3 metrics.py cpu
 
-# python3 metrics.py cpu
-
-system.cpu.idle 498288.53 
-system.cpu.user 31070.55 
-system.cpu.guest 0.0 
-system.cpu.iowait 268.62 
-system.cpu.stolen 0.0 
-system.cpu.system 12015.86
-
-
+system.cpu.idle 498288.53  
+system.cpu.user 31070.55  
+system.cpu.guest 0.0  
+system.cpu.iowait 268.62  
+system.cpu.stolen 0.0  
+system.cpu.system 12015.86  
+```
 -------------------------------------------------------------------------------------------
 
 # MEM 
 
 -------------------------------------------------------------------------------------------
-
+```
 python3 metrics.py mem
 
 virtual total 16175804416 
-virtual used 10338594816 
-virtual free 848625664 
-virtual shared 1459568640
-swap total 4294434816 
-swap used 22806528 
-swap free 4271628288
-
+virtual used 10338594816  
+virtual free 848625664  
+virtual shared 1459568640  
+swap total 4294434816  
+swap used 22806528  
+swap free 4271628288  
+```
 -------------------------------------------------------------------------------------------
 
 # For display host metrics from docker container I built image with psutil after that ran container with key and mount volumes
 
 -------------------------------------------------------------------------------------------
-
+```
 docker build -t yuriig/psutil:latest .
 
 docker push yuriig/psutil:latest
 
 docker run --name psutil --pid host -d -ti --userns host -v /home/yg/projects/my/GL_Procamp:/tmp -v /etc/passwd:/etc/passwd:ro yuriig/psutil:latest
-
+```
 -------------------------------------------------------------------------------------------
-
+```
 docker exec -ti psutil python3 /tmp/metrics.py cpu
 
 system.cpu.idle 504920.7 
@@ -55,24 +54,24 @@ system.cpu.guest 0.0
 system.cpu.iowait 271.66 
 system.cpu.stolen 0.0 
 system.cpu.system 12327.92
+```
+```
+docker exec -ti psutil python3 /tmp/metrics.py mem  
 
-docker exec -ti psutil python3 /tmp/metrics.py mem
-
-virtual total 16175804416 
-virtual used 10718982144 
-virtual free 485036032 
-virtual shared 1460670464
-swap total 4294434816 
-swap used 22806528 
-swap free 4271628288
-
-
+virtual total 16175804416  
+virtual used 10718982144  
+virtual free 485036032  
+virtual shared 1460670464  
+swap total 4294434816  
+swap used 22806528  
+swap free 4271628288  
+```
 -------------------------------------------------------------------------------------------
  
 # Display pid on host
 
 -------------------------------------------------------------------------------------------
-
+```
 top
 
 17:10:54 up 1 day, 17:51,  1 user,  load average: 1.96, 1.73, 1.66
@@ -122,14 +121,13 @@ MiB Swap:   4095.5 total,   4073.7 free,     21.8 used.   3595.1 avail Mem
       1 root      20   0  167952  12052   8580 S   0.0   0.1   0:05.77 systemd                                                                         
       2 root      20   0       0      0      0 S   0.0   0.0   0:00.04 kthreadd                                                                        
       3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
-      
-
+```
 -------------------------------------------------------------------------------------------
 
 # Display pids and usernames from host in container 
 
 -------------------------------------------------------------------------------------------
-
+```
 docker exec -ti psutil sh
 
 top
@@ -181,5 +179,5 @@ MiB Swap:   4095.5 total,   4073.7 free,     21.8 used.   3605.8 avail Mem
      11 root      20   0       0      0      0 I   0.0   0.0   2:24.16 rcu_sched                                                                       
      12 root      rt   0       0      0      0 S   0.0   0.0   0:00.51 migration/0                                                                     
      13 root     -51   0       0      0      0 S   0.0   0.0   0:00.00 idle_inject/0 
-     
+```     
 -------------------------------------------------------------------------------------------
